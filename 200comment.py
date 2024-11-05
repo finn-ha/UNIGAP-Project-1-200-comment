@@ -1,4 +1,5 @@
 import pandas as pd
+from venv import create
 from sqlalchemy import create_engine
 
 # Đọc file Excel
@@ -16,6 +17,7 @@ df = pd.DataFrame(data)
 username = 'root'
 password = 'halong123'
 db = 'long_db'
+
 url = f"mysql+pymysql://{username}:{password}@localhost/{db}"
 engine = create_engine(url)
 
