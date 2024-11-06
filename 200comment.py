@@ -3,8 +3,8 @@ from venv import create
 from sqlalchemy import create_engine
 
 # Đọc file Excel
-xlsx_path = 'H:/My Drive/Learn Python/comment 7 col.xlsx'  # Dùng / để tránh lỗi escape character
-df = pd.read_excel(xlsx_path)
+csv_path = 'H:/My Drive/Learn Python/csv_comments.csv'  # Dùng / để tránh lỗi escape character
+df = pd.read_csv(csv_path)
 df = df.drop_duplicates()
 
 # Lọc dữ liệu theo từ khóa
@@ -22,6 +22,6 @@ db = 'long_db'
 url = f"mysql+pymysql://{username}:{password}@localhost/{db}"
 engine = create_engine(url)
 
-# Đẩy dữ liệu lên MySQL
-df.to_sql('comment', con=engine, if_exists='replace', index=False)
+# # Đẩy dữ liệu lên MySQL
+# df.to_sql('comment', con=engine, if_exists='replace', index=False)
 print(df)
